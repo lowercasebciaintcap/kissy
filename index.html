@@ -34,6 +34,7 @@
   .no {
     background-color: #cfd8dc;
     color: #333;
+    position: relative;
   }
 
   .message {
@@ -46,7 +47,6 @@
     line-height: 1.6;
   }
 
-  /* 💗 PHOTO */
   .love-photo {
     display: none;
     margin: 25px auto;
@@ -58,17 +58,7 @@
 
   .love-photo img {
     width: 100%;
-    height: auto;
     border-radius: 20px;
-  }
-
-  /* 🎵 LYRICS */
-  .lyrics {
-    display: none;
-    margin-top: 25px;
-    font-style: italic;
-    color: #ad1457;
-    animation: fadeIn 1s ease forwards;
   }
 
   @keyframes fadeIn {
@@ -107,9 +97,42 @@
   <img src="kissy.jpg" alt="Us together">
 </div>
 
-<div class="lyrics" id="lyrics">
-  “And, oh, it's hard to see you, but I wish you were right here  
-  <br>
-  Oh, it's hard to leave you when I get you everywhere  
-  <br>
-  All this time I'm thinking we could never be a pair
+<!-- 🎵 SONG -->
+<audio id="loveSong" src="love-me-not.mp3"></audio>
+
+<script>
+  function yesClicked() {
+    document.getElementById("loveMessage").style.display = "block";
+    document.getElementById("lovePhoto").style.display = "block";
+
+    // play song
+    const song = document.getElementById("loveSong");
+    song.play();
+
+    // floating hearts
+    for (let i = 0; i < 20; i++) {
+      createHeart();
+    }
+  }
+
+  function noClicked() {
+    const btn = document.querySelector(".no");
+    btn.style.left = Math.random() * 200 - 100 + "px";
+    btn.style.top = Math.random() * 200 - 100 + "px";
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
