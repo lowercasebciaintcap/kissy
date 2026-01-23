@@ -48,7 +48,7 @@
     line-height: 1.6;
   }
 
-  /* 💗 BIG BUT FITS ON SCREEN */
+  /* 💗 BIG, FITS SCREEN, CENTERED */
   .love-photo {
     display: none;
     margin: 30px auto;
@@ -56,6 +56,10 @@
     max-height: 70vh;
     box-shadow: 0 0 25px rgba(255,105,180,0.5);
     animation: fadeIn 0.8s ease forwards;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .love-photo img {
@@ -111,13 +115,11 @@
 <script>
   function yesClicked() {
     document.getElementById("loveMessage").style.display = "block";
-    document.getElementById("lovePhoto").style.display = "block";
+    document.getElementById("lovePhoto").style.display = "flex";
 
-    // play song
     const song = document.getElementById("loveSong");
     song.play();
 
-    // floating hearts
     for (let i = 0; i < 20; i++) {
       createHeart();
     }
