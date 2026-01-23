@@ -10,6 +10,7 @@
     text-align: center;
     background: transparent;
     padding: 20px;
+    margin: 0;
   }
 
   .question {
@@ -47,17 +48,21 @@
     line-height: 1.6;
   }
 
+  /* 💗 FULL WIDTH PHOTO */
   .love-photo {
     display: none;
-    margin: 25px auto;
-    width: 260px;
-    border-radius: 20px;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 100%;
     box-shadow: 0 0 25px rgba(255,105,180,0.5);
     animation: fadeIn 0.8s ease forwards;
   }
 
   .love-photo img {
     width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
     border-radius: 20px;
   }
 
@@ -71,6 +76,7 @@
     bottom: -20px;
     font-size: 24px;
     animation: floatUp 4s linear forwards;
+    pointer-events: none;
   }
 
   @keyframes floatUp {
@@ -94,11 +100,11 @@
 </div>
 
 <div class="love-photo" id="lovePhoto">
-  <img src="kissy.JPG" alt="Us together">
+  <img src="bf.jpg" alt="Us together">
 </div>
 
 <!-- 🎵 SONG -->
-<audio id="loveSong" src="love-me-not.mp3"></audio>
+<audio id="loveSong" src="ellie.mp3"></audio>
 
 <script>
   function yesClicked() {
